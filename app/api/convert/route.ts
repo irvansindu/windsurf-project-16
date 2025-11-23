@@ -50,7 +50,27 @@ export async function POST(request: NextRequest) {
     // Untuk saat ini, kita upload langsung file hasil (masih sama dengan input) ke Vercel Blob
     const jobId = `job-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 
-    const blob = await put(`converted/${jobId}-${file.name}`, file, {
+    // Tentukan ekstensi output berdasarkan targetType agar nama file sesuai hasil konversi
+    const targetExtensionMap: Record<string, string> = {
+      pdf: '.pdf',
+      docx: '.docx',
+      pptx: '.pptx',
+      xlsx: '.xlsx',
+      jpg: '.jpg',
+      png: '.png',
+      txt: '.txt',
+      html: '.html',
+      csv: '.csv',
+    };
+
+    const originalName = file.name || 'document';
+    const baseName = originalName.includes('.')
+      ? originalName.substring(0, originalName.lastIndexOf('.'))
+      : originalName;
+    const outputExtension = targetExtensionMap[targetType] || '';
+    const outputFileName = `${baseName}${outputExtension}` || originalName;
+
+    const blob = await put(`converted/${jobId}-${outputFileName}`, file, {
       access: 'public',
     });
 
