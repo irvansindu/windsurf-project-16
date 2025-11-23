@@ -1,0 +1,24 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background rounded shape -->
+  <rect x="12" y="12" width="104" height="104" rx="32" fill="#0F172A"/>
+  
+  <!-- Document with folded corner -->
+  <path d="M46 32C43.7909 32 42 33.7909 42 36V94C42 96.2091 43.7909 98 46 98H82C84.2091 98 86 96.2091 86 94V52L70 32H46Z" fill="#E5E7EB"/>
+  <path d="M70 32V46C70 48.2091 71.7909 50 74 50H86" fill="#D1D5DB"/>
+
+  <!-- Inner document lines -->
+  <rect x="50" y="56" width="24" height="4" rx="2" fill="#9CA3AF"/>
+  <rect x="50" y="66" width="28" height="4" rx="2" fill="#9CA3AF"/>
+  <rect x="50" y="76" width="18" height="4" rx="2" fill="#9CA3AF"/>
+
+  <!-- Conversion arrows circle -->
+  <circle cx="92" cy="92" r="22" fill="#22C55E"/>
+
+  <!-- Arrow 1 -->
+  <path d="M84 92C84 87.5817 87.5817 84 92 84H96" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M94 80L100 84L94 88" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Arrow 2 -->
+  <path d="M100 92C100 96.4183 96.4183 100 92 100H88" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M90 104L84 100L90 96" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
