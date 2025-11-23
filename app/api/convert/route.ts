@@ -48,9 +48,10 @@ export async function POST(request: NextRequest) {
     
     // Untuk demo, kita kembalikan file dummy URL
     const jobId = `job-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-    
-    // Simulasi URL download (pada production, ini adalah URL ke file hasil konversi)
-    const downloadUrl = `/api/download/${jobId}`;
+
+    // Simulasi URL download (pada production, ini adalah URL ke file hasil konversi yang disimpan di storage)
+    // File ini adalah file statis yang ada di folder public/dummy/converted-sample.pdf
+    const downloadUrl = `/dummy/converted-sample.pdf`;
 
     // Kembalikan response sukses
     return NextResponse.json({
