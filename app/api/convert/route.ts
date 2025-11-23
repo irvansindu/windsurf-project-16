@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { put } from '@vercel/blob';
 
 /**
  * API Endpoint untuk konversi dokumen
@@ -45,13 +46,15 @@ export async function POST(request: NextRequest) {
     // 2. Melakukan konversi menggunakan library yang sesuai
     // 3. Menyimpan hasil konversi ke storage (local/cloud)
     // 4. Mengembalikan URL download
-    
-    // Untuk demo, kita kembalikan file dummy URL
+
+    // Untuk saat ini, kita upload langsung file hasil (masih sama dengan input) ke Vercel Blob
     const jobId = `job-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 
-    // Simulasi URL download (pada production, ini adalah URL ke file hasil konversi yang disimpan di storage)
-    // File ini adalah file statis yang ada di folder public/dummy/converted-sample.pdf
-    const downloadUrl = `/dummy/converted-sample.pdf`;
+    const blob = await put(`converted/${jobId}-${file.name}`, file, {
+      access: 'public',
+    });
+
+    const downloadUrl = blob.url;
 
     // Kembalikan response sukses
     return NextResponse.json({
